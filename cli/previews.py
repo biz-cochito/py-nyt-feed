@@ -1,8 +1,10 @@
-from rich import print
+# from rich import print
 from rich.console import Console
 from rich.text import Text
+
 import cli.style as style
-from .article import Article
+from nyt.article import Article
+
 # from .images import get_image, draw_image
 
 
@@ -21,8 +23,7 @@ def compile_article(response):
     article_block.append(section, style=style.style_muted)
     # article_block.stylize(style.style_frame)
     return article_block
-    
-    
+
 
 def display_article(response):
     article_block = compile_article(response)
