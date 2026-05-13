@@ -2,8 +2,9 @@
 from rich.console import Console
 from rich.text import Text
 
-import cli.style as style
-from nyt.article import Article
+from nyt_feed.api.models import Article
+
+from . import style
 
 # from .images import get_image, draw_image
 

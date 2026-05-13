@@ -1,10 +1,11 @@
 from term_image.image import from_url
 
+
 def get_image(url):
     try:
         img = from_url(url)
         return img
-    except:
+    except Exception:
         print(f"Failed to fetch image from {url}")
 
 

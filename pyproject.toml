@@ -8,3 +8,8 @@ dependencies = [
     "rich>=15.0.0",
     "term-image>=0.7.2",
 ]
+[project.scripts]
+nyt-feed = "nyt_feed.__main__:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
