@@ -1,13 +1,9 @@
 [project]
-name = "newsfeed"
+name = "nyt_feed"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
-dependencies = [
-    "pynytimes>=0.10.0",
-    "rich>=15.0.0",
-    "term-image>=0.7.2",
-]
+dependencies = ["pynytimes>=0.10.0", "rich>=15.0.0", "term-image>=0.7.2"]
 [project.scripts]
 nyt-feed = "nyt_feed.__main__:main"
 
