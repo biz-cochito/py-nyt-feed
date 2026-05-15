@@ -1,8 +1,0 @@
-Metadata-Version: 2.4
-Name: nyt_feed
-Version: 0.1.0
-Summary: Add your description here
-Description-Content-Type: text/markdown
-Requires-Dist: pynytimes>=0.10.0
-Requires-Dist: rich>=15.0.0
-Requires-Dist: term-image>=0.7.2

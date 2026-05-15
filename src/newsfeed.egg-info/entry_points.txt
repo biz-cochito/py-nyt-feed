@@ -1,2 +1,0 @@
-[console_scripts]
-nyt-feed = nyt_feed.__main__:main
