@@ -9,10 +9,14 @@ from . import style
 # from .images import get_image, draw_image
 
 
-def compile_article(response):
+def compile_article(response, number=None):
     article_block = Text()
     article = Article(response)
-    title = article.title
+    title = ""
+    if number is not None:
+        title = f"{number}. {article.title}"
+    else:
+        title = article.title
     abstract = article.abstract
     published = article.published
     url = article.url
@@ -26,8 +30,8 @@ def compile_article(response):
     return article_block
 
 
-def display_article(response):
-    article_block = compile_article(response)
+def display_article(response, number=None):
+    article_block = compile_article(response, number)
     console = Console()
     console.print(article_block)
     # print("\n")
