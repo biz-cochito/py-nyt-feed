@@ -1,37 +1,19 @@
-# from rich import print
 from rich.console import Console
 from rich.text import Text
-
+from rich.style import Style
 from nyt_feed.api.models import Article
 
-from . import style
-
-# from .images import get_image, draw_image
-
-
-def compile_article(response, number=None):
-    article_block = Text()
-    article = Article(response)
-    title = ""
-    if number is not None:
-        title = f"{number}. {article.title}"
-    else:
-        title = article.title
-    abstract = article.abstract
-    published = article.published
-    url = article.url
-    section = article.section
-    article_block.append(title, style=style.style_title)
-    article_block.append(abstract)
-    article_block.append(published)
-    article_block.append(url, style=style.style_frame)
-    article_block.append(section, style=style.style_muted)
-    # article_block.stylize(style.style_frame)
-    return article_block
-
-
 def display_article(response, number=None):
-    article_block = compile_article(response, number)
+    preview_block = Text()
     console = Console()
-    console.print(article_block)
-    # print("\n")
+    article = Article(response)
+    article_url = article.url.strip("URL: ")
+    title_link = Text(article.title, style=Style(link=article_url, color='color(10)', bold=True))
+    title_number = Text(f"{str(number)}. ", style="dim")
+    title = Text.assemble(title_number, title_link)
+    preview_block.append(title)
+    preview_block.append(article.abstract)
+    preview_block.append(article.published, style="dim")
+    preview_block.append(article.section, style="dim")
+    console.print(preview_block) 
+
