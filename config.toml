@@ -1,0 +1,12 @@
+[general]
+sections = ["world"]
+article_count = 10
+
+[display]
+date = 1
+section = 1
+numbers = 1
+abstract = 1
+
+[system]
+browser = ""
