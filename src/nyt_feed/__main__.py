@@ -17,10 +17,14 @@ def main():
     else:
         stories = nyt.top_stories(section=config.sections[0])
 
+    limit = config.article_count
     i = 1
     for story in stories:
-        display_article(story, number=i)
+        if i > limit:
+            break
+        display_article(story, config, number=i)
         i += 1
+
 
 
 if __name__ == "__main__":
