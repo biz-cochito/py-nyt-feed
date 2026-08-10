@@ -15,4 +15,4 @@ def init_config(file):
     with open(file, "rb") as f:
         toml = tomllib.load(f)
         config = Config(toml)
-        return config
+    return config

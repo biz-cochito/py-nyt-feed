@@ -1,3 +1,5 @@
+import os
+
 from nyt_feed.api import auth_nyt
 from nyt_feed.cli.config import init_config
 from nyt_feed.cli.previews import display_article
@@ -5,7 +7,9 @@ from nyt_feed.cli.previews import display_article
 
 def main():
     nyt = auth_nyt()
-    config = init_config("config.toml")
+    config = init_config(
+        os.path.join(os.path.expanduser("~"), "Projects", "py-nyt-feed", "config.toml")
+    )
 
     if not config.sections:
         stories = nyt.top_stories()
@@ -24,7 +28,6 @@ def main():
             break
         display_article(story, config, number=i)
         i += 1
-
 
 
 if __name__ == "__main__":
